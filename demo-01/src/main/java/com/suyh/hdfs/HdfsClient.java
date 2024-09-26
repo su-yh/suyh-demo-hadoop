@@ -20,24 +20,24 @@ public class HdfsClient {
     public static void main(String[] args) throws Exception {
         if (true) {
             {
-                String filePath = "hdfs://192.168.8.58:8020/temp/tmp.txt";
+                String filePath = "hdfs://192.168.8.58:8020/temp/application-beta.yaml";
                 readTextPlus(filePath);
             }
             System.out.println("###########################################");
             {
-                String filePath = "file:///temp/tmp.txt";
+                String filePath = "file:///temp/application-beta.yaml";
                 readTextPlus(filePath);
             }
             System.out.println("=========================================");
             {
-                String filePath = "/temp/tmp.txt";
+                String filePath = "/temp/application-beta.yaml";
                 readTextPlus(filePath);
             }
             return;
         }
         if (false) {
             {
-                URI uri = new URI("hdfs://192.168.8.58:8020/temp/tmp.txt");
+                URI uri = new URI("hdfs://192.168.8.58:8020/temp/application-beta.yaml");
                 String scheme = uri.getScheme();
                 String filePath = uri.getPath();
                 String pre = String.format("%s://%s", scheme, uri.getAuthority());
@@ -45,7 +45,7 @@ public class HdfsClient {
                 System.out.println(fmt);
             }
             {
-                URI uri = new URI("file:///temp/tmp.txt");
+                URI uri = new URI("file:///temp/application-beta.yaml");
                 String scheme = uri.getScheme();
                 String filePath = uri.getPath();
                 String pre = String.format("%s://%s", scheme, uri.getAuthority());
@@ -53,7 +53,7 @@ public class HdfsClient {
                 System.out.println(fmt);
             }
             {
-                URI uri = new URI("/temp/tmp.txt");
+                URI uri = new URI("/temp/application-beta.yaml");
                 String scheme = uri.getScheme();
                 String filePath = uri.getPath();
                 String pre = String.format("%s://%s", scheme, uri.getAuthority());
@@ -64,7 +64,7 @@ public class HdfsClient {
         }
         if (false) {
             {
-                Path path = new Path("hdfs://192.168.8.58:8020/temp/tmp.txt");
+                Path path = new Path("hdfs://192.168.8.58:8020/temp/application-beta.yaml");
                 URI uri = path.toUri();
                 String scheme = uri.getScheme();
                 String filePath = uri.getPath();
@@ -73,7 +73,7 @@ public class HdfsClient {
                 System.out.println(fmt);
             }
             {
-                Path path = new Path("/temp/tmp.txt");
+                Path path = new Path("/temp/application-beta.yaml");
                 URI uri = path.toUri();
                 String scheme = uri.getScheme();
                 String filePath = uri.getPath();
@@ -86,14 +86,14 @@ public class HdfsClient {
         {
             // 从hdfs 文件系统中读文件
             URI uri = new URI("hdfs://192.168.8.58:8020");
-            String filePath = "/temp/tmp.txt";
+            String filePath = "/temp/application-beta.yaml";
             readText(uri, filePath);
         }
 
         {
             // 从本地文件系统中读文件
             URI uri = new URI("file:///");
-            String filePath = "/temp/tmp.txt";
+            String filePath = "/temp/application-beta.yaml";
             readText(uri, filePath);
         }
 
@@ -103,7 +103,7 @@ public class HdfsClient {
         Configuration configuration = new Configuration();
 
         FileSystem fs = FileSystem.get(uri, configuration);
-//        FSDataInputStream inputStream = fs.open(new Path("hdfs://hadoop102:8020/tmp.txt"));
+//        FSDataInputStream inputStream = fs.open(new Path("hdfs://hadoop102:8020/application-beta.yaml"));
         FSDataInputStream inputStream = fs.open(new Path(filePath));
 
         FsStatus status = fs.getStatus();
@@ -121,9 +121,9 @@ public class HdfsClient {
     }
 
     /**
-     * String filePath = "hdfs://192.168.8.58:8020/temp/tmp.txt";
-     * String filePath = "file:///temp/tmp.txt";
-     * String filePath = "/temp/tmp.txt";
+     * String filePath = "hdfs://192.168.8.58:8020/temp/application-beta.yaml";
+     * String filePath = "file:///temp/application-beta.yaml";
+     * String filePath = "/temp/application-beta.yaml";
      */
     private static void readTextPlus(String filePath) throws Exception {
         URI uri = new URI(filePath);
